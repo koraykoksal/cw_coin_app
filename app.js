@@ -138,7 +138,7 @@ const renderCoin=(data)=>{
 
     document.querySelector('.coins').innerHTML +=`
     
- 
+
         <div class="card">
             <div class="card_main">
                 <div class="card_top">
@@ -177,12 +177,13 @@ const container=document.querySelector('.container')
 
 container.addEventListener('click',e=>{
 
-    // const cards = document.getElementById("cards")
-    const cards = document.querySelectorAll('.cards')
+    const cards = document.querySelector(".coins")
+
 
     if(e.target.getAttribute("id")=="clearAll"){
 
-        cards.remove()
+        cards.innerHTML=""
+       
     }
 
 
