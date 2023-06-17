@@ -323,4 +323,21 @@
 
   .coinSymbol{
     border-radius: 5px;
+    color:#fff;
+  }
+
+  .btnClearAll{
+
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .btnClearAll button{
+
+    background-color:#c3112d;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
   }

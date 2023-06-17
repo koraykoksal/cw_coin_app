@@ -5,7 +5,7 @@ let coinNames=[]
 let coinDatas=[]
 let cdata =""
 
-const btnDelCoin=document.querySelector('.card')
+const btnDelCoin=document.querySelector(".coins")
 
 const options = {
     headers: {
@@ -20,6 +20,8 @@ window.addEventListener('load',()=>{
 
     getCoins()
 })
+
+
 
 const getCoins=async ()=>{
 
@@ -83,7 +85,7 @@ const sendDropDown=()=>{
 
 
 
-
+// select den gelen değer
 
 document.getElementById('select').addEventListener('change',()=>{
 
@@ -106,6 +108,8 @@ document.getElementById('select').addEventListener('change',()=>{
 
 
 
+//coin bilgilerini ekrana bas
+
 const renderCoin=(data)=>{
 
     
@@ -120,45 +124,37 @@ const renderCoin=(data)=>{
     }=data
 
     let changeColor = ""
-    let status = ""
+    let emoji = ""
+    let coin = "🪙"
   
     if (change>0) {
       changeColor = "green"
-      status = "📈"
     }
     else {
       changeColor = "red"
-      status = "📉"
     }
 
 
 
     document.querySelector('.coins').innerHTML +=`
     
-    
-    <div class="card">
-        <div class="card_main">
-            <div class="card_top">
-                <p>${name}</p>
-                <p class="coinSymbol" style="background-color:${color}">${symbol}</p>
-                <!-- <button class="card_remove">X</button> -->
-                <i class="fa-solid fa-xmark"></i>
+ 
+        <div class="card">
+            <div class="card_main">
+                <div class="card_top">
+                    <p>${name}</p>
+                    <p class="coinSymbol" style="background-color:${color}">${symbol}</p>
+                    <!-- <button class="card_remove">X</button> -->
+                    <i class="fa-solid fa-xmark" id=""del></i>
+                </div>
+                <p>${price}</p>
+                <img src="${iconUrl}" alt="">
+                <p id="coinChange" style="color:${changeColor}">${change}%</p>
             </div>
-            <p>${price}</p>
-            <img src="${iconUrl}" alt="">
-            <p id="coinChange" style="color:${changeColor}">${change}%</p>
         </div>
-    </div>
-    
+
     `
 
-    const test = document.getElementById('coinChange')
-
-    if(test.value>0){
-
-        document.getElementById('coinChange').style.background="green"
-
-    }
 
 
 }
@@ -166,10 +162,27 @@ const renderCoin=(data)=>{
 
 
 // card clası içidneki delete butonu
-btnDelCoin.addEventListener('click',(e)=>{
+btnDelCoin.addEventListener('click',e=>{
 
-    if(e.target.closest('card')){
-        alert('carddd')
+
+    if(e.target.classList.value=="fa-solid fa-xmark"){
+
+        e.target.closest(".card").remove()
+    }
+
+})
+
+
+const container=document.querySelector('.container')
+
+container.addEventListener('click',e=>{
+
+    // const cards = document.getElementById("cards")
+    const cards = document.querySelectorAll('.cards')
+
+    if(e.target.getAttribute("id")=="clearAll"){
+
+        cards.remove()
     }
 
 
