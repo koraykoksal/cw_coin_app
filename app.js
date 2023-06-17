@@ -126,12 +126,15 @@ const renderCoin=(data)=>{
     let changeColor = ""
     let emoji = ""
     let coin = "🪙"
+    let status =""
   
     if (change>0) {
       changeColor = "green"
+      status = "📈"
     }
     else {
       changeColor = "red"
+      status = "📉"
     }
 
 
@@ -147,9 +150,9 @@ const renderCoin=(data)=>{
                     <!-- <button class="card_remove">X</button> -->
                     <i class="fa-solid fa-xmark" id=""del></i>
                 </div>
-                <p>${price}</p>
+                <p>$ ${price}</p>
                 <img src="${iconUrl}" alt="">
-                <p id="coinChange" style="color:${changeColor}">${change}%</p>
+                <p id="coinChange" style="color:${changeColor}">${status+" "+"%"+ change}%</p>
             </div>
         </div>
 
